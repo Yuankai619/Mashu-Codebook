@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "slist": "cpp",
+        "system_error": "cpp",
+        "array": "cpp",
+        "regex": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "rope": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
+    }
+}
