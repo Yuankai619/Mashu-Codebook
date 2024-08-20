@@ -1,0 +1,5 @@
+.gitattributes
+.vscode/
+**/a.exe
+**/.cph/
+.test.cpp
