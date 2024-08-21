@@ -25,13 +25,13 @@ ostream& operator<<(ostream& os,const set<T>& vn){
 }
 mt19937 mt(hash<string>()("Mashu_AC_Please")); //mt();
 // mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
-// g++ test.cpp
+// g++ a.cpp -Wall -Wshadow -fsanitize=undefined -o a.exe
 // ./a.exe
 const int MXN=2e5+5;
 const int INF=INT_MAX;
 void sol() {}
 signed main() {
-    // auto start = chrono::high_resolution_clock::now();
+    // auto start=chrono::high_resolution_clock::now();
     // #ifdef LOCAL
     // freopen("input.txt","r",stdin);
     // freopen("output.txt","w",stdout);
@@ -42,5 +42,5 @@ signed main() {
     while(t--) {sol();}
     // auto stop = chrono::high_resolution_clock::now();
     // auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    // cerr << "Time: " << duration.count() << " ms" << endl;
+    // cerr<<"Time:"<<duration.count()<<" ms\n";
 }
