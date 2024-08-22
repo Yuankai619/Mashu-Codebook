@@ -1,0 +1,41 @@
+name: Compile Codebook
+run-name: Compile codebook
+on:
+    push:
+      paths-ignore:
+        - 'README.md'
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    container: ghcr.io/yuankai619/codebook:latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Compile
+        run: |
+          xelatex codebook.tex
+          xelatex codebook.tex
+          cp codebook.pdf codebook.pdf
+      - name: Check PDF Page
+        run: |
+          chmod +x scripts/check_pdf_page.sh
+          ./scripts/check_pdf_page.sh
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: build
+      - name: Copy PDF
+        run: |
+          cp codebook.pdf codebook.pdf
+      - name: Set safe directory
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: build from ${{ github.ref_name }} - ${{ github.sha }}
+          file_pattern: codebook.pdf
+          

@@ -1,9 +1,11 @@
-FROM ubuntu:latest
+FROM texlive/texlive:latest
 
 RUN apt-get update
-RUN apt install --no-install-recommends texlive-full -y
+RUN apt-get install -y wget fontconfig unzip git 
 
-RUN apt-get install -y wget fontconfig unzip git
+# ARG CACHEBUST=1
+# RUN git clone https://github.com/Yuankai619/Mashu-Codebook.git
+
 RUN mkdir -p /usr/share/fonts/truetype/consolas && \
     wget https://github.com/kakkoyun/linux.files/raw/master/fonts/Consolas.ttf -O /usr/share/fonts/truetype/consolas/Consolas.ttf && \
     chmod 644 /usr/share/fonts/truetype/consolas/Consolas.ttf && \
@@ -15,11 +17,8 @@ RUN wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.z
     fc-cache -fv
 
 RUN rm /usr/share/fonts/NotoSansCJKtc-hinted.zip
-
-WORKDIR /codebook
-
-RUN git clone https://github.com/Yuankai619/Mashu-Codebook.git
 WORKDIR /codebook/Mashu-Codebook
-RUN xelatex codebook.tex
-RUN xelatex codebook.tex
-ENTRYPOINT [ "ls" ]
+COPY .fonts/ttf/ /usr/share/fonts/truetype/custom/
+
+# COPY ./ ./
+# ENTRYPOINT ["sh", "-c", "ls && tail -f /dev/null"]
