@@ -1,6 +1,6 @@
 // 給一張有向圖，圖上有一個起點 S 可以走到所有點。
-// 定義 "支配" 為從起點 S 出發，所有能走到節點 𝑥 的路徑的最後一個必經點
-// 最後 idom[i] 為點 𝑖 的支配點
+// 定義 "支配" 為從起點 S 出發，所有能走到節點 x 的路徑的最後一個必經點
+// 最後 idom[i] 為點 i 的支配點
 struct DominatorTree{ // O(n+m)
 #define REP(i,s,e) for(int i=(s);i<=(e);i++)
 #define REPD(i,s,e) for(int i=(s);i>=(e);i--)
