@@ -22,13 +22,13 @@ jobs:
         run: |
           chmod +x script/check_pdf_page.sh
           ./script/check_pdf_page.sh
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout build branch
+        uses: actions/checkout@v4
         with:
           ref: build
       - name: Copy PDF
         run: |
-          cp codebook.pdf codebook.pdf
+          cp /codebook/Mashu-Codebook/codebook.pdf codebook.pdf
       - name: Set safe directory
         run: |
           git config --global --add safe.directory $GITHUB_WORKSPACE
