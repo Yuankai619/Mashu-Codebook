@@ -22,10 +22,10 @@ jobs:
         run: |
           chmod +x script/check_pdf_page.sh
           ./script/check_pdf_page.sh
-      - name: Checkout build branch
-        uses: actions/checkout@v4
-        with:
-          ref: build
+    #   - name: Checkout build branch
+    #     uses: actions/checkout@v4
+    #     with:
+    #       ref: build
       - name: Copy PDF
         run: |
           cp /codebook/Mashu-Codebook/codebook.pdf codebook.pdf
