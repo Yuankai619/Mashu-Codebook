@@ -18,7 +18,8 @@ jobs:
         run: |
           xelatex codebook.tex
           xelatex codebook.tex
-          cp /github/workspace/codebook.pdf /codebook/Mashu-Codebook/codebook.pdf
+          ls -l /codebook/
+          cp /codebook/Mashu-Codebook/codebook.pdf /github/workspace/codebook.pdf
       - name: Check PDF Page
         run: |
           chmod +x script/check_pdf_page.sh
