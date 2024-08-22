@@ -12,7 +12,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Compile
         run: |
@@ -20,7 +20,7 @@ jobs:
           xelatex codebook.tex
       - name: Check PDF Page
         run: |
-          chmod +x scripts/check_pdf_page.sh
+          chmod +x script/check_pdf_page.sh
           ./script/check_pdf_page.sh
       - name: Checkout
         uses: actions/checkout@v3
