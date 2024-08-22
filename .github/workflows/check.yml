@@ -18,6 +18,7 @@ jobs:
         run: |
           xelatex codebook.tex
           xelatex codebook.tex
+          cp /codebook/Mashu-Codebook/codebook.pdf /github/workspace/codebook.pdf
       - name: Check PDF Page
         run: |
           chmod +x script/check_pdf_page.sh
@@ -26,9 +27,9 @@ jobs:
     #     uses: actions/checkout@v4
     #     with:
     #       ref: build
-      - name: Copy PDF
-        run: |
-          cp /Mashu-Codebook/codebook.pdf codebook.pdf
+    #   - name: Copy PDF
+    #     run: |
+    #       cp /codebook/Mashu-Codebook/codebook.pdf codebook.pdf
       - name: Set safe directory
         run: |
           git config --global --add safe.directory $GITHUB_WORKSPACE
