@@ -28,7 +28,7 @@ jobs:
     #       ref: build
       - name: Copy PDF
         run: |
-          cp /codebook/Mashu-Codebook/codebook.pdf codebook.pdf
+          cp /Mashu-Codebook/codebook.pdf codebook.pdf
       - name: Set safe directory
         run: |
           git config --global --add safe.directory $GITHUB_WORKSPACE
