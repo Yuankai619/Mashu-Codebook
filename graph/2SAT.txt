@@ -1,0 +1,21 @@
+有N個 boolean 變數$a_1 ∼ a_N$
+ex: 滿足 (¬a1 or a2)and(a2 or a3)and(¬a3 or ¬a4) 的解
+* **想法(把2-SAT 轉 SCC)**
+把n個boolean值分成true和false兩種節點(共$2n$個節點)
+如果有一個條件 (p and q)，則建兩條邊
+not p -> q (if p為false 則 q必為true)
+not q -> p (if q為false 則 p必為true)
+然後跑一次SCC
+我們可以知道對於當前變數$a_i$有true和false兩種
+* 如果($a_i$和$¬a_i$)在同一個強連通分量裡表示
+    (if $a_i$為true 則 $a_i$必為false，因為有一條路徑從$a_i$到$¬a_i$)
+    (if $a_i$為false 則 $a_i$必為true，因為有一條路徑從$¬a_i$到$a_i$)
+    很明顯矛盾了...(無解)
+* 如果($a_i$和$¬a_i$)**不**在同一個強連通分量裡表示
+    如果把SCC縮點成DAG
+    則會有$a_i$的強連通分量流到$¬a_i$的強連通分量 or $¬a_i$的強連通分量流到$a_i$的強連通分量(其一)
+    if (有$a_i$的強連通分量流到$¬a_i$的強連通分量) 則表示
+    &ensp;&ensp; 如果 $a_i$為true 則 $a_i$必為false，但沒有表示
+    &ensp;&ensp; ~~如果 $a_i$為false 則 $a_i$必為true~~
+    &ensp;&ensp; 此時把 $a_i$的值設false即可
+    ps: 在模板中如果有$a_i$的強連通分量流到$¬a_i$的強連通分量則$bln[¬a_i]>bln[a_i]$
