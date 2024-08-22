@@ -18,7 +18,6 @@ jobs:
         run: |
           xelatex codebook.tex
           xelatex codebook.tex
-          cp codebook.pdf codebook.pdf
       - name: Check PDF Page
         run: |
           chmod +x scripts/check_pdf_page.sh
