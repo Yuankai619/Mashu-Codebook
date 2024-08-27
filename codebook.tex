@@ -94,10 +94,11 @@
 \makeatother
 
 % ---------------------------------------------------------------------------------------
-\makeatletter
-% \renewcommand{\@pnumwidth}{2em} % 控制頁碼的寬度
-\renewcommand{\@tocrmarg}{4em}  % 控制目錄中文字的左邊距
-\makeatother
+\usepackage{tocloft}
+\cftsetpnumwidth{2em}  % 調整頁碼欄位的寬度
+\cftsetrmarg{4em}      % 調整目錄中文字的左邊距
+\cftsetindents{section}{1.5em}{3em} % 增加目錄章節的縮排與頁碼間距
+
 
 \begin{document}
 \pagestyle{fancy}
