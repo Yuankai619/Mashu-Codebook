@@ -23,8 +23,4 @@ double Angle(Vector a,Vector b){return acos(Dot(a,b)/Length(a)/Length(b));}//弧
 double Degree(Vector a,Vector b){return Angle(a,b)*180/acos(-1);}//角度
 double Area2(Point a,Point b,Point c){return Cross(b-a,c-a);}//(a,b)X(a,c)的面積 
 Vector Rotate(Vector a,double rad){return Vector(a.x*cos(rad)-a.y*sin(rad),a.x*sin(rad)+a.y*cos(rad));}//逆時針旋轉,rad為弧度
-Vector Normal(Vector a){double L=Length(a);return Vector(-a.y/L,a.x/L);}//單位法向量，確保a不是零向量       struct PointHash {
-    std::size_t operator()(const Point &p) const {
-        return std::hash<double>()(p.x) ^ (std::hash<double>()(p.y) << 1);
-    }
-};      
+Vector Normal(Vector a){double L=Length(a);return Vector(-a.y/L,a.x/L);}//單位法向量，確保a不是零向量
