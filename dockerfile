@@ -11,7 +11,7 @@ RUN mkdir -p /usr/share/fonts/truetype/consolas && \
     chmod 644 /usr/share/fonts/truetype/consolas/Consolas.ttf && \
     fc-cache -fv
 
-RUN wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.zip -O /usr/share/fonts/NotoSansCJKtc-hinted.zip && \
+RUN wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKtc-hinted.zip -O /usr/share/fonts/NotoSansCJKtc-hinted.zip && \
     unzip /usr/share/fonts/NotoSansCJKtc-hinted.zip -d /usr/share/fonts/NotoSansCJKtc/ && \
     chmod 644 /usr/share/fonts/NotoSansCJKtc/*.otf && \
     fc-cache -fv
@@ -20,5 +20,5 @@ RUN rm /usr/share/fonts/NotoSansCJKtc-hinted.zip
 WORKDIR /codebook/Mashu-Codebook
 COPY .fonts/ttf/ /usr/share/fonts/truetype/custom/
 
-# COPY ./ ./
-# ENTRYPOINT ["sh", "-c", "ls && tail -f /dev/null"]
+COPY ./ ./
+ENTRYPOINT ["sh", "-c", "ls && tail -f /dev/null"]
