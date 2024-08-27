@@ -43,3 +43,44 @@ struct PalT{
         for(int i=tot-1;i>1;i--) cnt[fail[i]]+=cnt[i];
     }
 } palt;
+// state 數組
+//    state[i] 代表第 i 個字元為結尾的最長回文編號(編號是甚麼不重要)
+//    
+//    S = “abacaaba”
+//    
+//    以第 2(0-base) 個字元為結尾的最長回文是 aba
+//    以第 7(0-base) 個字元為結尾的最長回文是 aba
+//    兩個最長回文都相同，因此 state[2] 會等於 state[7]
+
+// len 數組
+//    求出某個 state 的長度
+//    
+//    S = “aababa”
+//   
+//    (0-base)
+//    len[state[1]] = 2 (“aa”)
+//    len[state[3]] = 3 (“aba”)
+//    len[state[5]] = 5 (“ababa”)
+
+// num 數組
+//    某個state的回文有幾個回文後綴
+//  
+//    假設某個 state 代表的回文為 = “ababa” 為例
+//    state 代表的回文的 num = 3
+//    -> ababa -> aba -> a
+
+// cnt 數組
+//    某個 state 的回文在整個字串中出現次數
+//   
+//    S = “aababaa”
+//    state[3] 代表的回文為 “aba” 在整個字串中出現 2 次
+//    因此 cnt[state[3]] = 2
+
+// fail數組
+//    每個 state 的次長回文後綴的 state 編號
+//   
+//    S = “ababa”
+//    len[fail[4]] = 3 (fail[4] = “aba”)
+//    len[fail[2]] = 1 (fail[2] = “a”)
+//    len[fail[0]] = 0 (fail[0] = “” 空字串)
+//    0 所代表的 state 是空字串
