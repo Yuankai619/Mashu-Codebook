@@ -95,10 +95,20 @@
 
 % ---------------------------------------------------------------------------------------
 \usepackage{tocloft}
+\cftsetindents{subsection}{1.5em}{2.5em}
 
-% 調整目錄中 subsection 和 subsubsection 的縮排
-\cftsetindents{subsection}{1.5em}{1em}
-\cftsetindents{subsubsection}{1em}{1em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{Mashu}
+    \fancyhead[L]{National Taiwan Ocean University}
+    \fancyhead[R]{(\today) \thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
 
 \begin{document}
