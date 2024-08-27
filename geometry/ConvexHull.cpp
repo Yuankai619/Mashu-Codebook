@@ -2,8 +2,8 @@
 //輸入不能有重複點，注意h的點未排序!
 //如果有在邊上的輸入點，要把<=改成< 
 //若要求高精度用dcmp比較
-Point ch[N];
-int convexHull(Point* p,int n){
+vector<Pt> ch(MXN);
+int convexHull(Pt* p,int n){
     sort(p,p+n);
     int m=0;
     for(int i=0;i<n;++i){//downHull
