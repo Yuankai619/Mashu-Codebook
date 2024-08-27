@@ -94,11 +94,11 @@
 \makeatother
 
 % ---------------------------------------------------------------------------------------
-\makeatletter
-\renewcommand{\@pnumwidth}{2em} % 控制頁碼的寬度
-\renewcommand{\@tocrmarg}{4em}  % 控制目錄中文字的左邊距
-\makeatother
+\usepackage{tocloft}
 
+% 調整目錄中 subsection 和 subsubsection 的縮排
+\cftsetindents{subsection}{1.5em}{3em}
+\cftsetindents{subsubsection}{3em}{4em}
 
 
 \begin{document}
