@@ -5,6 +5,7 @@
 // flow.solve():回傳一個pair(maxFlow,minCost)
 // 限制: 圖不能有負環
 // 網路最大流的add_edge(u,v,f)可以無痛轉成最大流量上的最小花費add_edge(u,v,1,f)即建立一條從u到v的邊流量為1，單位流量花費為f
+//O(V^2 E^2)
 #define ll long long
 struct zkwflow{
     static const int maxN=20000;
