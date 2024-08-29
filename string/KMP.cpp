@@ -30,3 +30,22 @@ vector<int> KMP(string s,string t){
     }
     return ret;
 }
+
+//另一版
+//if t is the substring of s:
+//if t in s:
+bool cmp(string s, string t) {
+    vector<int> front(t.size(), 0);
+    for(int i=1, j=0 ; i<t.size() ; i++) {
+        while(j>0 && t[i]!=t[j]) j = front[j-1];
+        if(t[i]==t[j]) j++;
+        front[i] = j;
+    }
+    int j=0, i=0;
+    while(i<s.size()) {
+        if(s[i]==t[j]) j++,i++;
+        else {i += (j==0); j = (j<1?0:front[j-1]);}
+        if(j>=t.size()) return true;
+    }
+    return false;
+}
