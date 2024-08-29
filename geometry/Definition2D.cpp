@@ -1,30 +1,46 @@
-struct Point{
-    double x,y;
-    Point(double x=0,double y=0):x(x),y(y){}
-    bool operator==(const Point &other) const {
-        return x == other.x && y == other.y;
-    }
+#define ld long double
+const ld eps=1e-10;
+int dcmp(ld x){if(fabs(x)<eps) return 0;else return x<0?-1:1;}
+struct Pt{
+    ld x,y;
+    Pt(ld x=0,ld y=0):x(x),y(y){}
+    Pt operator+(const Pt &a) const {
+        return Pt(x+a.x, y+a.y);  }
+    Pt operator-(const Pt &a) const {
+        return Pt(x-a.x, y-a.y);  }
+    Pt operator*(const ld &a) const {
+        return Pt(x*a, y*a);  }
+    Pt operator/(const ld &a) const {
+        return Pt(x/a, y/a);  }
+    ld operator*(const Pt &a) const {//dot
+        return x*a.x + y*a.y;  }
+    ld operator^(const Pt &a) const {//cross
+        return x*a.y - y*a.x;  }
+    bool operator<(const Pt &a) const {
+        return x < a.x || (x == a.x && y < a.y); }
+        //return dcmp(x-a.x) < 0 || (dcmp(x-a.x) == 0 && dcmp(y-a.y) < 0); }
+    bool operator>(const Pt &a) const {
+        return x > a.x || (x == a.x && y > a.y); }
+        //return dcmp(x-a.x) > 0 || (dcmp(x-a.x) == 0 && dcmp(y-a.y) > 0); }
+    bool operator==(const Pt &a) const {
+        return dcmp(x-a.x) == 0 && dcmp(y-a.y) == 0;  }
+        // return x == other.x && y == other.y;
 };
-typedef Point Vector;
-Vector operator + (Vector a,Vector b){return Vector(a.x+b.x,a.y+b.y);}
-Vector operator - (Vector a,Vector b){return Vector(a.x-b.x,a.y-b.y);}
-Vector operator * (Vector a,double p){return Vector(a.x*p,a.y*p);}
-Vector operator / (Vector a,double p){return Vector(a.x/p,a.y/p);}
-const double eps=1e-10;
-int dcmp(double x){if(fabs(x)<eps) return 0;else return x<0?-1:1;}
-//bool operator == (const Point& a,const Point& b){return dcmp(a.x-b.x)==0&&dcmp(a.y-b.y)==0;}//高精度
-bool operator < (const Point& a,const Point& b){return a.x<b.x||(a.x==b.x&&a.y<b.y);}
-bool operator > (const Point& a,const Point& b){return a.x>b.x||(a.x==b.x&&a.y>b.y);}
-double Dot(Vector a,Vector b){return a.x*b.x+a.y*b.y;}
-double Cross(Vector a,Vector b){return a.x*b.y-a.y*b.x;}
-double Length(Vector a){return sqrt(Dot(a,a));}
+typedef Pt Vec;
+ld Dot(Vec a,Vec b){return a.x*b.x+a.y*b.y;}
+ld Cross(Vec a,Vec b){return a.x*b.y-a.y*b.x;}
+ld Length(Vec a){return sqrt(Dot(a,a));}
 
-double Angle(Vector a,Vector b){return acos(Dot(a,b)/Length(a)/Length(b));}//弧度
-double Degree(Vector a,Vector b){return Angle(a,b)*180/acos(-1);}//角度
-double Area2(Point a,Point b,Point c){return Cross(b-a,c-a);}//(a,b)X(a,c)的面積 
-Vector Rotate(Vector a,double rad){return Vector(a.x*cos(rad)-a.y*sin(rad),a.x*sin(rad)+a.y*cos(rad));}//逆時針旋轉,rad為弧度
-Vector Normal(Vector a){double L=Length(a);return Vector(-a.y/L,a.x/L);}//單位法向量，確保a不是零向量       struct PointHash {
-    std::size_t operator()(const Point &p) const {
-        return std::hash<double>()(p.x) ^ (std::hash<double>()(p.y) << 1);
-    }
-};      
+ld Angle(Vec a,Vec b){return acos(Dot(a,b)/Length(a)/Length(b));}//弧度
+ld Degree(Vec a,Vec b){return Angle(a,b)*180/acos(-1);}//角度
+ld Area2(Pt a,Pt b,Pt c){return Cross(b-a,c-a);}//(a,b)X(a,c)的面積 
+Vec Rotate(Vec a,ld rad){return Vec(a.x*cos(rad)-a.y*sin(rad),a.x*sin(rad)+a.y*cos(rad));}//逆時針旋轉,rad為弧度
+Vec Normal(Vec a){ld L=Length(a);return Vec(-a.y/L,a.x/L);}//單位法向量，確保a不是零向量    
+
+struct Line {
+  Pt a, b, v; // start, end, end-start
+  ld ang;
+  Line(Pt _a=Pt(0, 0), Pt _b=Pt(0, 0)):a(_a),b(_b) { v = b-a; ang = atan2(v.y, v.x); }
+  bool operator<(const Line &L) const {
+    return ang < L.ang;
+} };

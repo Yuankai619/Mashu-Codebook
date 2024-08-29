@@ -94,6 +94,22 @@
 \makeatother
 
 % ---------------------------------------------------------------------------------------
+\usepackage{tocloft}
+\cftsetindents{subsection}{1.5em}{2.5em}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{Mashu}
+    \fancyhead[L]{National Taiwan Ocean University}
+    \fancyhead[R]{(\today) \thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
 
 \begin{document}
 \pagestyle{fancy}

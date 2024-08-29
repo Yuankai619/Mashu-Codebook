@@ -38,7 +38,7 @@ signed main() {
     // #endif
     IO
     int t=1;
-    cin>>t;
+    // cin>>t;
     while(t--) {sol();}
     // auto stop = chrono::high_resolution_clock::now();
     // auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
