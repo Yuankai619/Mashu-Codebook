@@ -4,6 +4,8 @@
 //     ...    
 //  {a, b, c}}
 // 貼上 BIT 模板
+// 三維偏序
+// a <= a, b <= b, c <= c
 map<vector<int>, int> cnt;
 int cdq(vector<vector<int>> &vec, int l, int r) {
     if(l==r) return 0;
