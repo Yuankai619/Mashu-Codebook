@@ -23,8 +23,10 @@ struct seg {
     Node* update(Node* cur,int l,int r,int pos,int v) {
         Node* node=new Node;
         if(l==r){
-           node->val=v;
-           return node;
+            //改成加值換這行
+            //node->val=cur->val + v;
+            node->val=v;
+            return node;
         }
         int mid=(l+r)/2;
         if(pos<=mid) {
@@ -46,3 +48,8 @@ struct seg {
         return ans;
     }
 } tree;
+// push 初始的樹
+// tree.version.push_back(tree.build(1, n));
+
+// update(舊版, 1, n, pos, v) return 新版
+// 把pos值改成v
