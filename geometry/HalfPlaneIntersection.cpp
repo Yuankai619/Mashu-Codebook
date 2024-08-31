@@ -5,7 +5,8 @@ bool onleft(Line L, Pt p) {
 } // segment should add Counterclockwise
 // assume that Lines intersect
 // 傳入每條方程式的兩點方程式
-// (半平面為像量 $\vec{ab}$的逆時針方向)
+// 回傳形成的凸多邊形頂點
+// (半平面為像量 ab 的逆時針方向)
 //注意題目輸入的點要是逆時針排序
 vector<Pt> HPI(vector<Line>& L) {
   sort(L.begin(), L.end()); // sort by angle
