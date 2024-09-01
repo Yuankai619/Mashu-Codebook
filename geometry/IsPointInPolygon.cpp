@@ -1,5 +1,5 @@
 //判斷點是否在多邊形內部
-int isPointInPolygon(Point p,Point* poly,int n){
+int isPointInPolygon(Pt p,Pt* poly,int n){
     int wn=0;
     for(int i=0;i<n;++i){
         if(isOnSegment(p,poly[i],poly[(i+1)%n])) return -1;//在邊界上

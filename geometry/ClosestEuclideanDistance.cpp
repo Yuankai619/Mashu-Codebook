@@ -1,9 +1,9 @@
 //最近點對距離注意若整數要define double long long
-double closestEuclideanDistance(Point* p,int n){
+double closestEuclideanDistance(Pt* p,int n){
     sort(p,p+n);
-    set<Point> s={{p[0].y,p[0].x}};
+    set<Pt> s={{p[0].y,p[0].x}};
     int j = 0;
-    Point t;
+    Pt t;
     double dd=LLONG_MAX,d;
     for(int i=1;i<n;++i){
         d = sqrt(dd);

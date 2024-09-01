@@ -1,12 +1,10 @@
 //回傳為到每個頂點距離和最小的點
-Point weiszfeld(const Point *p,int n){
+Pt weiszfeld(const Pt *p,int n){
     double nn=n;
-    Point cur = p[0];
-    for(int i=1;i<n;++i){
+    Pt cur = p[0], next;
+    for(int i=1;i<n;++i)
         cur.x+=p[i].x, cur.y+=p[i].y;
-    }
     cur.x/=nn, cur.y/=nn;
-    Point next;
     double w,numerX,numerY,denomin;
     while(1){
         numerX=numerY=denomin=0;
@@ -23,14 +21,12 @@ Point weiszfeld(const Point *p,int n){
             }else{
                 next = p[i];
                 break;
-            }
-        }
+        }   }
         if(update){
             next.x = numerX/denomin;
             next.y = numerY/denomin;
         }
         if(Length(cur-next)<eps) break;
-
         cur = next; 
     }
     return next;
