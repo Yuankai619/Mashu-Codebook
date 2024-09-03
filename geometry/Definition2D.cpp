@@ -25,6 +25,8 @@ struct Pt{
     bool operator==(const Pt &a) const {
         return dcmp(x-a.x) == 0 && dcmp(y-a.y) == 0;  }
         // return x == other.x && y == other.y;
+     bool operator!=(const Pt &a) const {
+        return !(*this == a);  }
 };
 typedef Pt Vec;
 ld Dot(Vec a,Vec b){return a.x*b.x+a.y*b.y;}
