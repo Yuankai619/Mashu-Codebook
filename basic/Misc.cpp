@@ -2,6 +2,7 @@ iota(vec.begin(),vec.end(),1);// 產生1~size的整數列
 stoi(s.begin(),s.end(),k);// 法1,字串轉成k進位int 
 string s;cin>>s;
 int x=stoi(s,0,2); // 法2,2可以改其他進位
+int bbb = bitset<10>(bb).to_ulong();//二進位轉十進位
 __builtin_popcountll // 二進位有幾個1
 __builtin_clzll // 左起第一個1前0的個數
 __builtin_parityll // 1的個數的奇偶性
