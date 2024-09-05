@@ -16,7 +16,8 @@
 \usepackage[CheckSingle, CJKmath]{xeCJK}
  \usepackage{CJKulem}
 \usepackage{tikz} % Used for draw Finite Automata
-
+\usepackage{afterpage}                          % 控制頁面後續內容
+\usepackage{tocloft}                            % 調整目錄樣式
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
 \topmargin=0pt
 \headsep=2pt
@@ -123,6 +124,6 @@
 \scriptsize
 \tableofcontents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % 更新目錄頁碼
-\input{content.tex}
+\afterpage{\input{content.tex}}
 
 \end{document}
