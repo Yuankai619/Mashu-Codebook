@@ -1,5 +1,8 @@
 from datetime import datetime, date, time, timedelta
 
+# 閏年 2024
+# 平年 2023
+
 # 日期相減
 start_time = datetime(2024, 8, 31)
 end_time = datetime(2024, 9, 1)
