@@ -1,5 +1,5 @@
 #define ll long long
-#define lll long long
+#define lll __int128
 ll mypow(lll n,lll k,ll p){
     ll res=1;
     for(;k;k>>=1,n=n*n%p)if(k&1)res=res*n%p;
