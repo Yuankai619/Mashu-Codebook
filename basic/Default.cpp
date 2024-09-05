@@ -7,7 +7,7 @@
 #define ft first
 #define sd second
 #define int long long
-#define double long double
+#define ld long double
 #define PI acos(-1)
 #define SZ(x) (int)x.size()
 #define all(v) (v).begin(), (v).end()
