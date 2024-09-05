@@ -122,9 +122,7 @@
 
 \scriptsize
 \tableofcontents
-% 重新計算頁碼，將目錄也計入
-\pagenumbering{arabic}  % 改為阿拉伯數字
-\setcounter{page}{2}   % 設置後續頁碼從1開始
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % 更新目錄頁碼
 \input{content.tex}
 
 \end{document}
