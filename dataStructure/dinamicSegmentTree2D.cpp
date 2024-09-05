@@ -1,3 +1,9 @@
+// tree.init(n,m) 二維大小
+// tree.add(qx, qy, val) 座標 (qx, qy) 加值 val
+// tree.query(qlx, qly, qrx, qry) 座標 左下角(qlx, qly)到 座標 右上角(qrx, qry) 的矩陣總和
+// 單點加值
+// 區間查詢
+// O(lg(n)lg(m))
 struct segy {
     int n;
     struct Node {
@@ -24,7 +30,7 @@ struct segy {
         else {if(!cur->r) cur->r = new Node();add(cur->r, mid + 1, r, pos, val);}
         pull(cur);
     }
- 
+
     int query(Node* cur, int l, int r, int ql, int qr) {
         if(ql<=l && r<=qr) {
             return cur->val;
