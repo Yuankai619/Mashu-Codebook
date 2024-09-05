@@ -1,5 +1,8 @@
 // 計算小於n的數中與n互質的有幾個
 // O(sqrtN)
+
+// a^b mod c = a^(b%phi(c) + phi(c)) mod c   : if b>=phi(c)
+//           = a^b mod c                     : if b< phi(c)
 int phi(int n){
     int res = n, a=n; 
     for(int i=2;i*i<=a;i++){
