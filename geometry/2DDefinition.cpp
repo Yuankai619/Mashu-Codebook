@@ -44,3 +44,7 @@ bool argcmp(const Pt &a, const Pt &b) { // 極角cmp: arg(a) < arg(b)
     int g = (Pt{b.y, -b.x} > Pt{} ? 1 : -1) * (b != Pt{});
     return f == g ? (a ^ b) > 0 : f < g;
 }
+struct Circle {
+  Pt o; ld r;
+  Circle(Pt _o=Pt(0, 0), ld _r=0):o(_o), r(_r) {}
+};
