@@ -1,5 +1,6 @@
 const int MXN = 1e7+7; //if>1e7 TLE
 int np[MXN],fac[MXN],num[MXN];
+// isprime , 最大質因數 , 質因數數量
 void table(){
     np[1]=1;
     for(int i=2;i<MXN;++i){
