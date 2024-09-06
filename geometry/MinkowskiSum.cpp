@@ -7,14 +7,10 @@
 vector<Pt> Minkowski(vector<Pt> A, vector<Pt> B) { // |A|,|B|>=3
   hull(A), hull(B);
   vector<Pt> C(1, A[0] + B[0]), s1, s2; 
-  for (int i = 0; i < SZ(A); ++i) 
-    s1.push_back(A[(i + 1) % SZ(A)] - A[i]);
-  for (int i = 0; i < SZ(B); i++) 
-    s2.push_back(B[(i + 1) % SZ(B)] - B[i]);
+  for (int i = 0; i < SZ(A); ++i) s1.push_back(A[(i + 1) % SZ(A)] - A[i]);
+  for (int i = 0; i < SZ(B); i++) s2.push_back(B[(i + 1) % SZ(B)] - B[i]);
   for (int i = 0, j = 0; i < SZ(A) || j < SZ(B);)
-    if (j >= SZ(B) || (i < SZ(A) && Cross(s1[i], s2[j]) >= 0))
-      C.push_back(B[j % SZ(B)] + A[i++]);
-    else
-      C.push_back(A[i % SZ(A)] + B[j++]);
+    if (j >= SZ(B) || (i < SZ(A) && Cross(s1[i], s2[j]) >= 0)) C.push_back(B[j % SZ(B)] + A[i++]);
+    else C.push_back(A[i % SZ(A)] + B[j++]);
   return hull(C), C;
 }

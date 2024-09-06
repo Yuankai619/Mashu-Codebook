@@ -35,8 +35,7 @@ struct MaxClique{ // 0-base
     for(int i = 0 ; i < n ; i ++){
       id[i] = i; deg[i] = v[i].count();
     }
-    sort(id , id + n , [&](int id1, int id2){
-          return deg[id1] > deg[id2]; });
+    sort(id , id + n , [&](int id1, int id2){return deg[id1] > deg[id2];});
     for(int i = 0 ; i < n ; i ++) di[id[i]] = i;
     for(int i = 0 ; i < n ; i ++)
       for(int j = 0 ; j < n ; j ++)

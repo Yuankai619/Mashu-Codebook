@@ -19,8 +19,7 @@ struct Mec{  // return pair of center and r
     return Pt(x,y);
   }
   pair<Pt,double> solve(){
-    random_shuffle(p,p+n);
-    r2=0;
+    random_shuffle(p,p+n); r2=0;
     for (int i=0; i<n; i++){
       if (Dot(cen-p[i],cen-p[i]) <= r2) continue;
       cen = p[i];

@@ -20,10 +20,7 @@ struct ola{
         for(int i=ind[x] ; i<edge[x].size() ; i=ind[x]) {
             int u = edge[x][i].first, pos = edge[x][i].second;
             ind[x]++;
-            if(!use[pos]) {
-                use[pos]=1;
-                dfs(u);
-            }
+            if(!use[pos]) {use[pos]=1; dfs(u);}
         }
         ans.push_back(x);
     }

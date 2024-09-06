@@ -130,7 +130,6 @@ struct KSP{ // 1-base
           Q.push( q );
   } }   }
   void solve(){ // ans[i] stores the i-th shortest path
-    dijkstra();
-    build();
+    dijkstra(); build();
     first_K(); // ans.size() might less than k
 } };

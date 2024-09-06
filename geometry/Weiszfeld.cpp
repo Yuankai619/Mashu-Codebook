@@ -16,11 +16,9 @@ Pt weiszfeld(const Pt *p,int n){
                 w = 1.0/d;
                 numerX+=w*p[i].x;
                 numerY+=w*p[i].y;
-                denomin+=w;
-                update=1;
+                denomin+=w; update=1;
             }else{
-                next = p[i];
-                break;
+                next = p[i]; break;
         }   }
         if(update){
             next.x = numerX/denomin;

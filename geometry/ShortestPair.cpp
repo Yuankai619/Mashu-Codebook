@@ -2,8 +2,7 @@
 double closestEuclideanDistance(Pt* p,int n){
     sort(p,p+n);
     set<Pt> s={{p[0].y,p[0].x}};
-    int j = 0;
-    Pt t;
+    int j = 0; Pt t;
     double dd=LLONG_MAX,d;
     for(int i=1;i<n;++i){
         d = sqrt(dd);

@@ -12,8 +12,7 @@ void pull(int index, int l, int r) {
 }
 void insert(int index, int s, int e, int l, int r, int k) {
     if(l<=s && e<=r) {
-        lazy[index] +=k;
-        pull(index, s, e);
+        lazy[index] +=k; pull(index, s, e);
         return;
     }
     int mid = (s+e)/2;
@@ -22,10 +21,7 @@ void insert(int index, int s, int e, int l, int r, int k) {
     pull(index, s, e);
 }
 void input(int index, int l, int r) {
-    if(l==r) {
-        old[index] = sor[l]-sor[l-1];
-        return;
-    }
+    if(l==r) {old[index] = sor[l]-sor[l-1]; return;}
     int mid = (l+r)/2;
     input(index<<1, l, mid);
     input(index<<1|1, mid+1, r);
@@ -38,14 +34,9 @@ signed main(){
     int l, r, d, u;
     for (int i = 0; i < n; i++){
         cin >> l >> d >> r >> u;
-        // l+=diff;
-        // d+=diff;
-        // r+=diff;
-        // u+=diff;
-        sor.push_back(d);
-        sor.push_back(u);
-        v.push_back({l, d, u, 1});
-        v.push_back({r, d, u, -1});
+        // l+=diff; d+=diff; r+=diff; u+=diff;
+        sor.push_back(d); sor.push_back(u);
+        v.push_back({l, d, u, 1}); v.push_back({r, d, u, -1});
     }
     set<int> temp(sor.begin(), sor.end());
     sor = vector<int>(temp.begin(), temp.end());

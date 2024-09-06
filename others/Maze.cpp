@@ -6,14 +6,11 @@ inline bool inb(pii u){
     return x>0 && x<=r && y>0 && y<=c;
 }
 void bfs(){
-    pii u;
-    int nx,ny;
-    queue<pii> q;
-    q.push(start);
+    pii u; int nx,ny;
+    queue<pii> q; q.push(start);
     disa[start.first][start.second]=0;
     while(!q.empty()){
-        u=q.front();
-        q.pop();
+        u=q.front(); q.pop();
         if(!inb(u))continue;
         for(int i=0;i<4;++i){
             nx=u.first+dr[i];

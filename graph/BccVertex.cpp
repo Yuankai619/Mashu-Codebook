@@ -11,9 +11,7 @@ struct BccVertex {
         for (int i = 0; i < n; i++)
             E[i].clear();
     }
-    void addEdge(int u, int v) {
-        E[u].PB(v); E[v].PB(u);
-    }
+    void addEdge(int u, int v) {E[u].PB(v); E[v].PB(u);}
     void DFS(int u, int f) {
         dfn[u] = low[u] = step++;
         stk[top++] = u;
