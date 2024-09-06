@@ -10,6 +10,6 @@ mat operator * (mat x,mat y){
         z.a[i][j]=(z.a[i][j]+x.a[i][k]*y.a[k][j]%MOD)%MOD;
     return z;
 }
-mat qpow(mat a,int k){
+mat matpow(mat a,int k){
     mat r(a.r,a.r);r.build();while(k){if(k&1)r=r*a;a=a*a;k>>=1;}return r;
 }
