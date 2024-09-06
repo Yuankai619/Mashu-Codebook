@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
-#include<chrono> // for timing
-#pragma GCC optimize("O3,unroll-loops")
-#pragma target optimize("avx2,bmi,bmi2,lzcnt,popcnt")
+// #pragma GCC optimize("O3,unroll-loops")
+// #pragma target optimize("avx2,bmi,bmi2,lzcnt,popcnt")
 #define IO ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define pii pair<int,int>
 #define ft first
@@ -23,11 +22,10 @@ ostream& operator<<(ostream& os,const set<T>& vn){
 	for(typename set<T>::iterator it=vn.begin();it!=vn.end();++it)os<<*it<<" ";
 	return os;
 }
-mt19937 mt(hash<string>()("Mashu_AC_Please")); //mt();
+mt19937 mt(hash<string>()("Mashu")); //mt();
 // mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 // g++ a.cpp -Wall -Wshadow -fsanitize=undefined -o a.exe
 // ./a.exe
-const int MXN=2e5+5;
 const int INF=INT_MAX;
 void sol() {}
 signed main() {
