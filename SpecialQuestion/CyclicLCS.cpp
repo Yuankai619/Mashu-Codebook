@@ -1,6 +1,3 @@
-#include<cstring>
-#include<algorithm>
-using std::max;
 const int MAXN = 1505;
 enum traceType{LEFT,DIAG,UP};
 int dp[MAXN*2][MAXN], pa[MAXN*2][MAXN];

@@ -5,9 +5,7 @@ int sol(vector<int> vec) {
     for(int u: vec) cnt[u]++;
     for(int i=mxn-1 ; i>=1 ; i--) {
         int a=0,b=0;
-        for(int j=i ; j<mxn ; j+=i) {
-            a+=cnt[j]; b+=dp[j];
-        }
+        for(int j=i ; j<mxn ; j+=i) {a+=cnt[j]; b+=dp[j];}
         dp[i] = (a*(a-1)/2) - b;
     }
     return dp[1];
