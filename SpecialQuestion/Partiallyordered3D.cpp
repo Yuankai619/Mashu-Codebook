@@ -1,10 +1,5 @@
-// vec
-// {{a, b, c},
-//  {a, b, c},
-//     ...    
-//  {a, b, c}}
-// 貼上 BIT 模板
 // 三維偏序
+// 貼上 BIT 模板
 // a <= a, b <= b, c <= c
 map<vector<int>, int> cnt;
 int cdq(vector<vector<int>> &vec, int l, int r) {
