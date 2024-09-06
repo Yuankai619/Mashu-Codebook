@@ -1,7 +1,7 @@
 // MAXN一定要2的冪次  先跑pre_fft()
 // (must be 2^k) 
 // before any usage, run pre_fft() first
-const int MAXN = 1024*1024;
+const int MAXN = 1024*1024; // 記得要改
 typedef long double ld;
 typedef complex<ld> cplx; //real() ,imag()
 const ld PI = acosl(-1);
@@ -38,15 +38,13 @@ void fft(int n, cplx a[], bool inv=false){
 cplx arr[MAXN+1];
 inline void mul(int _n,ll a[],int _m,ll b[],ll ans[]){
   int n=1,sum=_n+_m-1;
-  while(n<sum)
-    n<<=1;
+  while(n<sum)n<<=1;
   for(int i=0;i<n;i++) {
     double x=(i<_n?a[i]:0),y=(i<_m?b[i]:0);
     arr[i]=complex<double>(x+y,x-y);
   }
   fft(n,arr);
-  for(int i=0;i<n;i++)
-    arr[i]=arr[i]*arr[i];
+  for(int i=0;i<n;i++) arr[i]=arr[i]*arr[i];
   fft(n,arr,true);
   for(int i=0;i<sum;i++)
     ans[i]=(long long)(arr[i].real()/4+0.5);
