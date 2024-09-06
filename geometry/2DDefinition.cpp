@@ -4,29 +4,19 @@ int dcmp(ld x){if(fabs(x)<eps) return 0;else return x<0?-1:1;}
 struct Pt{
     ld x,y;
     Pt(ld x=0,ld y=0):x(x),y(y){}
-    Pt operator+(const Pt &a) const {
-        return Pt(x+a.x, y+a.y);  }
-    Pt operator-(const Pt &a) const {
-        return Pt(x-a.x, y-a.y);  }
-    Pt operator*(const ld &a) const {
-        return Pt(x*a, y*a);  }
-    Pt operator/(const ld &a) const {
-        return Pt(x/a, y/a);  }
-    ld operator*(const Pt &a) const {//dot
-        return x*a.x + y*a.y;  }
-    ld operator^(const Pt &a) const {//cross
-        return x*a.y - y*a.x;  }
-    bool operator<(const Pt &a) const {
-        return x < a.x || (x == a.x && y < a.y); }
+    Pt operator+(const Pt &a) const {return Pt(x+a.x, y+a.y);}
+    Pt operator-(const Pt &a) const {return Pt(x-a.x, y-a.y);}
+    Pt operator*(const ld &a) const {return Pt(x*a, y*a);}
+    Pt operator/(const ld &a) const {return Pt(x/a, y/a);}
+    ld operator*(const Pt &a) const {return x*a.x + y*a.y;} //dot
+    ld operator^(const Pt &a) const {return x*a.y - y*a.x;} //cross
+    bool operator<(const Pt &a) const {return x < a.x || (x == a.x && y < a.y);}
         //return dcmp(x-a.x) < 0 || (dcmp(x-a.x) == 0 && dcmp(y-a.y) < 0); }
-    bool operator>(const Pt &a) const {
-        return x > a.x || (x == a.x && y > a.y); }
+    bool operator>(const Pt &a) const {return x > a.x || (x == a.x && y > a.y);}
         //return dcmp(x-a.x) > 0 || (dcmp(x-a.x) == 0 && dcmp(y-a.y) > 0); }
-    bool operator==(const Pt &a) const {
-        return dcmp(x-a.x) == 0 && dcmp(y-a.y) == 0;  }
+    bool operator==(const Pt &a) const {return dcmp(x-a.x) == 0 && dcmp(y-a.y) == 0;}
         // return x == other.x && y == other.y;
-     bool operator!=(const Pt &a) const {
-        return !(*this == a);  }
+     bool operator!=(const Pt &a) const {return !(*this == a);}
 };
 typedef Pt Vec;
 ld Dot(Vec a,Vec b){return a.x*b.x+a.y*b.y;}
