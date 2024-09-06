@@ -14,8 +14,7 @@ struct seg { // 加值持久化線段樹
            return node;
         }
         int mid = (l+r)/2;
-        node->l = build(l,mid);
-        node->r = build(mid+1,r);
+        node->l = build(l,mid); node->r = build(mid+1,r);
         pull(node);
         return node;
     }

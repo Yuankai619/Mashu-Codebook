@@ -21,37 +21,24 @@ struct seg {
         val[index] = val[left]+val[right];
     }
     void build(int index, int l, int r) {
-        if(l==r) {
-            val[index] = a[l];
-            return;
-        }
+        if(l==r) {val[index] = a[l]; return;}
         int mid = (l+r)>>1;
-        build(left, l, mid); 
-        build(right, mid+1, r);
+        build(left, l, mid); build(right, mid+1, r);
         pull(index, l, r);
     }
     void add(int index, int s, int e, int l, int r, int v) {
         if(e<l || r<s) return;
-        if(l<=s && e<=r) {
-            tag[index] += v;
-            push(index, s, e);
-            return;
-        }
+        if(l<=s && e<=r) {tag[index] += v; push(index, s, e); return;}
         int mid = (s+e)>>1;
         push(index, s, e);
-        add(left, s, mid, l, r, v);
-        add(right, mid+1, e, l, r, v);
+        add(left, s, mid, l, r, v); add(right, mid+1, e, l, r, v);
         pull(index, s, e);
     }
     int query(int index, int s, int e, int l, int r) {
         if(e<l || r<s) return 0;
-        if(l<=s && e<=r) {
-            push(index, s, e);
-            return val[index];
-        }
+        if(l<=s && e<=r) {push(index, s, e); return val[index];}
         push(index, s, e);
         int mid = (s+e)>>1;
-        return query(right, mid+1, e, l, r)
-            +query(left, s, mid, l, r);
+        return query(right, mid+1, e, l, r)+query(left, s, mid, l, r);
     }
 } tree;

@@ -7,12 +7,8 @@ struct seg {
         Node *l, *r;
         Node(int v=0) : val(v), tag(0), l(nullptr), r(nullptr) {}
     };
-    Node* root;
-    int n;
-    void init(int _n) {
-        n = _n;
-        root = new Node();
-    }
+    Node* root; int n;
+    void init(int _n) {n = _n; root = new Node();}
     void push(Node* cur, int l, int r) {
         if(cur->tag) {
             cur->val += (r-l+1)*cur->tag;
@@ -27,16 +23,11 @@ struct seg {
     }
     void pull(Node* node, int l, int r) {
         int mid = l+r>>1;
-        push(node->l, l, mid);
-        push(node->r, mid+1, r);
+        push(node->l, l, mid); push(node->r, mid+1, r);
         node->val = node->l->val + node->r->val;
     }
     void add(Node* cur, int l, int r, int ql, int qr, int val) {
-        if (ql <= l && r <= qr) {
-            cur->tag += val;
-            push(cur, l, r);
-            return;
-        }
+        if (ql <= l && r <= qr) {cur->tag += val; push(cur, l, r); return;}
         if (!cur->l) cur->l = new Node();
         if (!cur->r) cur->r = new Node();
         int mid = (l + r) / 2;
@@ -46,10 +37,7 @@ struct seg {
         pull(cur, l, r);
     }
     int query(Node* cur, int l, int r, int ql, int qr) {
-        if(ql<=l && r<=qr) {
-            push(cur, l, r);
-            return cur->val;
-        }
+        if(ql<=l && r<=qr) {push(cur, l, r);return cur->val;}
         if (!cur->l) cur->l = new Node();
         if (!cur->r) cur->r = new Node();
         int mid = l+r>>1;
@@ -60,10 +48,6 @@ struct seg {
         pull(cur, l, r);
         return ans;
     }
-    int query(int ql, int qr) {
-        return query(root, 0, n, ql, qr);
-    }
-    void add(int ql, int qr, int val) {
-        add(root, 0, n, ql, qr, val);
-    }
+    int query(int ql, int qr) {return query(root, 0, n, ql, qr);}
+    void add(int ql, int qr, int val) {add(root, 0, n, ql, qr, val);}
 } tree;

@@ -13,8 +13,7 @@ node* build(int s, int e) {
     node *ret = new node();
     if(s==e) return ret;
     int mid = (s+e)>>1;
-    ret->l = build(s, mid);
-    ret->r = build(mid+1, e);
+    ret->l = build(s, mid); ret->r = build(mid+1, e);
     ret->val = ret->l->val + ret->r->val;
     return ret;
 }
@@ -39,7 +38,6 @@ int que(node* pre, node* now, int l, int r, int k) {
     if(l==r) return r;
     int mid = (l+r)>>1;
     int diff = now->l->val - pre->l->val;
-    //printf("now %d~%d  diff %d\n", l, r, diff);
     if(diff>=k) return que(pre->l, now->l, l, mid, k);
     else return que(pre->r, now->r, mid+1, r, k-diff);
     return -1;
@@ -57,14 +55,10 @@ signed main() {
     for(int i=0,a ; i<n ; i++) {
         cin>>a; num[i] = a; sor.push_back(a);
     }
-    // add: 1 1 1 2 1
-    // num: 3 3 3 4 3
-    // sor: 3 4
     sort(sor.begin(), sor.end());
     sor.erase(unique(sor.begin(), sor.end()), sor.end());
     for(int i=0 ; i<n ;i++) {
         int pos = lower_bound(sor.begin(), sor.end(), num[i]) - sor.begin() + 1;
-        //printf("mp[%d] = %d\n", pos, num[i]);
         mp[pos] = num[i];
         num[i] = pos;
         add(num[i], 1);
