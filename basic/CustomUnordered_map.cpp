@@ -1,6 +1,5 @@
 struct Type{
-    int x;
-    string y;
+    int x; string y;
     bool operator==(const Type &other) const {
         return (x == other.x && y == other.y);
     }
