@@ -6,10 +6,8 @@ ll mypow(lll n,lll k,ll p){
     return res;
 }
 ll mul(ll a,ll b,ll mod){   
-    lll c=a%mod;
-    return c*b%mod;
+    lll c=a%mod; return c*b%mod;
 }
 ll add(ll x,ll y,ll mod){
-    lll c=x;c+=y;
-    return c%mod;
+    lll c=x;c+=y; return c%mod;
 }
