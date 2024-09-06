@@ -2,7 +2,7 @@
 struct mat{
     long long a[200][200],r,c; // resize
     mat(int _r,int _c){r=_r;c=_c;memset(a,0,sizeof(a));}
-    void build(){for(int i=0;i<r;++i)a[i][i]=1;}
+    void build(){for(int i=0;i<r;++i)a[i][i]=1;} // 單位矩陣
 };
 mat operator * (mat x,mat y){
     mat z(x.r,y.c);
