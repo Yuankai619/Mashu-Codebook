@@ -18,11 +18,3 @@ void z_value_pal(char *s,int len,int *z){
     while(i-z[i]>=0&&i+z[i]<len&&s[i-z[i]]==s[i+z[i]])++z[i];
     if(i+z[i]>r) l=i,r=i+z[i];
 } }
-// cin>>s;
-// z_value_pal(s,strlen(s),z);
-// int mx=-1,mxi=0;
-// for(int i=0;i<=strlen(s);++i)
-//     if(mx<z[i]) mx = z[i], mxi = i;
-// mx--;
-// for(int i=mxi-mx;i<=mxi+mx;++i)
-//     if(s[i]!='@') cout<<s[i];

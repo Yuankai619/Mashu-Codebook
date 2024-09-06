@@ -1,7 +1,6 @@
 // init() addedge() sol()
 #define ll long long
-// time: O(|E| \lg |E| + |V| \lg |V| + K)
-// memory: O(|E| \lg |E| + |V|)
+// time: O(|E| \lg |E| + |V| \lg |V| + K) // memory: O(|E| \lg |E| + |V|)
 struct KSP{ // 1-base
   struct nd{
     int u, v; ll d;

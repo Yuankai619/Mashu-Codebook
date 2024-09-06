@@ -1,5 +1,4 @@
-//無向圖上，不會產生割點的連通分量稱為點雙連通分量，0base
-#define PB push_back
+#define PB push_back //無向圖上，不會產生割點的連通分量稱為點雙連通分量，0base
 #define REP(i, n) for(int i = 0; i < n; i++)
 struct BccVertex {
     int n, nScc, step, dfn[MXN], low[MXN];
