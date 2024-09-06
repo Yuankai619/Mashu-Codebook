@@ -23,8 +23,7 @@ struct Dinic{
             int u = que.front(); que.pop();
             for (auto it : E[u]){
             if (it.f > 0 && level[it.v] == -1){
-                level[it.v] = level[u]+1;
-                que.push(it.v);
+                level[it.v] = level[u]+1; que.push(it.v);
         } } }
         return level[t] != -1;
     }

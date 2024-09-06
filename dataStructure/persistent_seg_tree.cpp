@@ -1,7 +1,6 @@
 struct seg { // 加值持久化線段樹
     struct Node {
-        int val;
-        Node *l, *r;
+        int val; Node *l, *r;
     };
     vector<Node*> version;
     void pull(Node* node) {node->val = node->l->val+node->r->val;}

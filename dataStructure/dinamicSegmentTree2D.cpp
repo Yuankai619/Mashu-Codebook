@@ -6,8 +6,7 @@
 struct segy {
     int n;
     struct Node {
-        int val;
-        Node *l, *r;
+        int val; Node *l, *r;
         Node(int v=0) : val(v), l(nullptr), r(nullptr) {}
     };
     segy(int _n=1e9) {n=_n; root=new Node();}
@@ -37,8 +36,7 @@ struct segy {
 };
 struct segx {
     struct Node {
-        segy * tree_y;
-        Node *l, *r;
+        segy * tree_y; Node *l, *r;
         Node(int m) : tree_y(new segy(m)), l(nullptr), r(nullptr) {}
     };
     Node* root; int n,m;

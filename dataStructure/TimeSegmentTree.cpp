@@ -43,8 +43,7 @@ int que(node* pre, node* now, int l, int r, int k) {
     return -1;
 }
 int query(int l, int r, int k) {
-    l--;
-    return que(timing[l], timing[r], 1, n, k);
+    l--; return que(timing[l], timing[r], 1, n, k);
 }
 int num[100005];
 vector<int> sor;

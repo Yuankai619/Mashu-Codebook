@@ -10,8 +10,7 @@ int Size(Treap *a) {return a?a->sz:0;}
 void pull(Treap *a) {
 	a->sz = Size(a->l) + Size(a->r) + 1;
 }
-//val of a is always bigger than val of b
-Treap* merge(Treap *a ,Treap *b) {
+Treap* merge(Treap *a ,Treap *b) { //val of a is always bigger than val of b
 	if(!a || !b) return a ? a : b;
 	if(a->pri>b->pri) {
 		a->r = merge(a->r ,b);
@@ -23,8 +22,7 @@ Treap* merge(Treap *a ,Treap *b) {
 		return b;
 	}
 }
-// a<k, b>=k
-void split(Treap *t, int k, Treap*&a, Treap*&b){
+void split(Treap *t, int k, Treap*&a, Treap*&b){ // a<k, b>=k
 	if(!t) {a=b=NULL; return; }
 	if(k <= t->val) {
 		b = t;
@@ -49,14 +47,12 @@ Treap* del(Treap *t, int v) {
     split(temp, v+1, mid, r);
     return merge(l, r);
 }
-// base 1
-int position(Treap *t, int p) {
+int position(Treap *t, int p) { // base 1
     if(Size(t->l)+1==p) return t->val;
     if(Size(t->l)<p) return position(t->r, p-Size(t->l)-1);
     else return position(t->l, p);
 }
-//num of >= k
-int query(Treap *t, int k) {
+int query(Treap *t, int k) { //num of >= k
     if(!t) return 0;
     if(t->val==k) return Size(t->l)+1;
     if(t->val>k) return query(t->l, k);

@@ -16,8 +16,7 @@ struct seg {
     }
     void pull(int index, int l, int r) {
         int mid = l+r>>1;
-        push(left, l, mid);
-        push(right, mid+1, r);
+        push(left, l, mid); push(right, mid+1, r);
         val[index] = val[left]+val[right];
     }
     void build(int index, int l, int r) {

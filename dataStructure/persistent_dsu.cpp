@@ -7,12 +7,10 @@ void uion(int x, int y) {
     timing.push_back({x, bin[x], y, bin[y]});
     if(x==y) return;
     //ans--;
-    if(-bin[x] > -bin[y]) {bin[x]+=bin[y]; bin[y]=x;}
-    else {bin[y]+=bin[x]; bin[x]=y;}
+    if(-bin[x] > -bin[y]) {bin[x]+=bin[y]; bin[y]=x;} else {bin[y]+=bin[x]; bin[x]=y;}
 }
 void undo() {
     auto [a,b,c,d] = timing.back();
-    timing.pop_back();
-    //if(a!=c) ans++;
+    timing.pop_back(); //if(a!=c) ans++;
     bin[a] = b; bin[c] = d;
 }
