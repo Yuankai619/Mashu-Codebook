@@ -29,10 +29,8 @@ struct DominatorTree{ // O(n+m)
     g[ u ].push_back( v );
     pred[ v ].push_back( u );
   }
-  void dfs( int u ){
-    ts++;
-    dfn[ u ] = ts;
-    nfd[ ts ] = u;
+  void dfs( int u ) {
+    ts++; dfn[ u ] = ts;nfd[ ts ] = u;
     for( int v : g[ u ] ) if( dfn[ v ] == 0 ){
       par[ v ] = u;
       dfs( v );

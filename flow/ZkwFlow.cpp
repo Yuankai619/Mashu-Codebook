@@ -60,9 +60,8 @@ struct zkwflow{
         int flow = 0; ll cost = 0;
         while (SPFA()){
             fill_n(ptr, n, 0);
-            int f = DFS(s, INT_MAX);
-            flow += f; 
-            cost += dis[t]*f;
+            int f = DFS(s, INT_MAX); 
+            flow += f; cost += dis[t]*f;
         }
         return {flow, cost};
     } // reset: do nothing
