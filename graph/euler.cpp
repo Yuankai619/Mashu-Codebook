@@ -2,10 +2,7 @@ const int MXN = 2e5+7;
 struct ola{
     vector<pair<int, int>> edge[MXN];
     int ind[MXN], ru[MXN], use[MXN*3], es=0, n, go;
-    void init(int _n) {
-        n = _n;
-        for(int i=0 ; i<n ; i++) edge[i].clear(), ind[i]=0;
-    }
+    void init(int _n) {n = _n; for(int i=0 ; i<n ; i++) edge[i].clear(), ind[i]=0;}
     void add_edge(int a, int b) {
         use[es] = 0;
         edge[a].push_back({b, es});
@@ -14,9 +11,7 @@ struct ola{
     }
     bool check() {
         int cnt = 0;
-        for(int i=0 ; i<n ; i++) {
-            if(ru[i]&1) go = i,cnt++;
-        }
+        for(int i=0 ; i<n ; i++) {if(ru[i]&1) go = i,cnt++;}
         if(cnt==0 || cnt==2) return true;
         return false;
     }

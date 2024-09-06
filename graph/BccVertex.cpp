@@ -37,13 +37,8 @@ struct BccVertex {
     }
     vector<vector<int>> solve() {//回傳每個點雙聯通分量
         vector<vector<int>> res;
-        for (int i = 0; i < n; i++)
-            dfn[i] = low[i] = -1;
-        for (int i = 0; i < n; i++)
-            if (dfn[i] == -1) {
-                top = 0;
-                DFS(i, i);
-            }
+        for (int i = 0; i < n; i++) dfn[i] = low[i] = -1;
+        for (int i = 0; i < n; i++) if (dfn[i] == -1) {top = 0; DFS(i, i);}
         REP(i, nScc) res.PB(sccv[i]);
         return res;
     }

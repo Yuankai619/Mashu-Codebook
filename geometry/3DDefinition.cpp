@@ -26,6 +26,4 @@ struct Pt {
         return dcmp(x - a.x) == 0 && dcmp(y - a.y) == 0 && dcmp(z - a.z) == 0;
     }
 };
-ld norm2(const Pt &a,const Pt &b) {
-  return (a-b)*(a-b); 
-}
+ld norm2(const Pt &a,const Pt &b) {return (a-b)*(a-b);}

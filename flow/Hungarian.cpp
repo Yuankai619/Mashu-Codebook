@@ -11,8 +11,7 @@ bool dfs(int u){
         if(Map[u][i]&&!vis[i]){ //有連通且未拜訪
             vis[i]=1; //紀錄是否走過
             if(S[i]==-1||dfs(S[i])){  //紀錄匹配
-                S[i]=u;
-                return true;  //反轉匹配邊以及未匹配邊的狀態
+                S[i]=u; return true;  //反轉匹配邊以及未匹配邊的狀態
             }
         }
     }
@@ -23,8 +22,7 @@ memset(S,-1,sizeof(S));
 int ans = 0;
 for(int i=0;i<M;i++){
     memset(vis,0,sizeof(vis));
-    if(dfs(i)) ans++;
-    //跑匈牙利
+    if(dfs(i)) ans++; //跑匈牙利
 }
 cout<<ans<<"\n";
 for(int i=0 ; i<N ;i++) {

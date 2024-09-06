@@ -5,15 +5,12 @@ struct SPFA{//O(kE) k:小常數
   vector<ll> dis;
   vector<pair<int, ll>> edge[MXN];
   void init(int _n){
-    n = _n;
-    dis.clear(); dis.resize(n, 1e18);
+    n = _n; dis.clear(); dis.resize(n, 1e18);
     for(int i = 0; i < n; i++){
       edge[i].clear();
       inq[i] = len[i] = 0;
   } }
-  void addEdge(int u, int v, ll w){
-    edge[u].push_back({v, w});
-  }
+  void addEdge(int u, int v, ll w){edge[u].push_back({v, w});}
   vector<ll> solve(int st = 0){ 
     deque<int> dq; //return {-1} if has negative cycle
     dq.push_back(st); //otherwise return dis from st

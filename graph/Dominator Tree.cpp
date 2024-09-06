@@ -56,8 +56,7 @@ struct DominatorTree{ // O(n+m)
       mom[ u ] = par[ u ];
       for( int w : cov[ par[ u ] ] ){
         eval( w );
-        if( cmp( sdom[ mn[ w ] ] , par[ u ] ) )
-          idom[ w ] = mn[ w ];
+        if( cmp( sdom[ mn[ w ] ] , par[ u ] ) ) idom[ w ] = mn[ w ];
         else idom[ w ] = par[ u ];
       }
       cov[ par[ u ] ].clear();
@@ -65,6 +64,5 @@ struct DominatorTree{ // O(n+m)
     REP( i , 2 , n ){
       int u = nfd[ i ];
       if( u == 0 ) continue ;
-      if( idom[ u ] != sdom[ u ] )
-        idom[ u ] = idom[ idom[ u ] ];
+      if( idom[ u ] != sdom[ u ] ) idom[ u ] = idom[ idom[ u ] ];
 } } }domT;
