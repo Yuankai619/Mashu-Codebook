@@ -8,8 +8,7 @@ const int mod = 1e9+7;
 void prefix(string &s, vector<int> &pi) {
     for(int i=1, j=0 ; i<s.size() ; i++) {
         while(j>0 && s[i]!=s[j]) j = pi[j-1];
-        if(s[i]==s[j]) j++;
-        pi[i] = j;
+        if(s[i]==s[j]) j++; pi[i] = j;
     }
 }
 void automata(string &s, vector<int> &pi) {
@@ -23,8 +22,7 @@ void automata(string &s, vector<int> &pi) {
 int quai(int x, int n); //快速冪
 int solve(string s, int len) {
     vector<int> pi(s.size(), 0);
-    prefix(s, pi);
-    automata(s, pi);
+    prefix(s, pi); automata(s, pi);
     int n = s.size(), ans = quai(26, len);
     dp[0][0] = 1;
     for(int i=0 ; i<len ; i++) {
