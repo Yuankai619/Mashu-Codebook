@@ -10,9 +10,6 @@ bool onleft(Line L, Pt p) {
 //注意題目輸入的點要是逆時針排序
 vector<Pt> HPI(vector<Line>& L) {
   sort(L.begin(), L.end()); // sort by angle
-  for(auto l:L){
-    cerr<<l.a.x<<" "<<l.a.y<<" "<<l.b.x<<" "<<l.b.y<<" "<<l.ang<<'\n';
-  }
   int n = L.size(), fir, las;
   Pt *p = new Pt[n];
   Line *q = new Line[n];

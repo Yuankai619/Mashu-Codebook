@@ -4,9 +4,7 @@
 vector<double> PolyUnion(const vector<vector<Pt>> &P) {
     auto reorder = [&](vector<Pt> &v) { //排序成逆時針且最左下角的點在最前面
         rotate(v.begin(), min_element(all(v)), v.end());
-        if (Ori(v[0], v[1], v[2]) < 0) {
-            reverse(all(v));
-        }
+        if (Ori(v[0], v[1], v[2]) < 0) {reverse(all(v));}
     };
     for(auto &i: py){ reorder(i);}
     const int n = P.size();
