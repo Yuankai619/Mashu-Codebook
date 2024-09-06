@@ -4,7 +4,7 @@ bool cmp(const Pt& lhs,const Pt&rhs){
         return (lhs < Pt()) < (rhs < Pt());
     return Cross(lhs,rhs) > 0;
 }
-/* 若要以p[i]為原點排序->計算v=p[j]-p[i]
+// 若要以p[i]為原點排序->計算v=p[j]-p[i]
 for(int j=0;j<n;++j){
     if(i!=j){
         Vector v = p[j]-p[i];
@@ -12,4 +12,3 @@ for(int j=0;j<n;++j){
     }
 }
 sort(node,node+nodeSz,cmp);
-*/
