@@ -7,8 +7,7 @@ void table(){
         if(np[i])continue;
         for(int j=i;j<MXN;j+=i){
             if(i!=j)np[j]=1;
-            fac[j]=i;
-            num[j]++;
+            fac[j]=i; num[j]++;
         }
     }
 }
