@@ -1,4 +1,3 @@
-
 const int MXN = 2e5+7;
 int top[MXN], son[MXN], dfn[MXN], rnk[MXN], dep[MXN], father[MXN];
 vector<int> edge[MXN];
@@ -19,7 +18,6 @@ int dfs1(int v, int fa, int d) {
     else son[v] = maxu;
     return total;
 }
-
 int times = 1;
 void dfs2(int v, int fa) {
     rnk[times] = v;
@@ -33,5 +31,4 @@ void dfs2(int v, int fa) {
 }
 //rnk: 剖分後的編號 (rnk[時間] = 原點)
 //dfn: 剖分後的編號 (dfn[原點] = 時間)
-//top: 剖分的頭頭
-//son: 剖分的重兒子
+//top: 剖分的頭頭 son: 剖分的重兒子
