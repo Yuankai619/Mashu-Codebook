@@ -4,9 +4,7 @@ struct seg { // 加值持久化線段樹
         Node *l, *r;
     };
     vector<Node*> version;
-    void pull(Node* node) {
-        node->val = node->l->val+node->r->val;
-    }
+    void pull(Node* node) {node->val = node->l->val+node->r->val;}
     Node* build(int l,int r) {
         Node* node=new Node;
         if(l==r) {
