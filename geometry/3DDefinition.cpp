@@ -13,10 +13,10 @@ struct Pt {
     Pt operator/(const ld &a) const {
         return Pt(x / a, y / a, z / a);
     }
-    ld operator*(const Pt &a) const { // Dot product
+    ld operator*(const Pt &a) const {
         return x * a.x + y * a.y + z * a.z;
     }
-    Pt operator^(const Pt &a) const { // Cross product
+    Pt operator^(const Pt &a) const {
         return Pt(y * a.z - z * a.y, z * a.x - x * a.z, x * a.y - y * a.x);
     }
     bool operator<(const Pt &a) const {
