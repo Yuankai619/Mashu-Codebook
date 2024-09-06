@@ -48,6 +48,5 @@ struct seg { // 加值持久化線段樹
 } tree;
 // push 初始的樹
 // tree.version.push_back(tree.build(1, n));
-
 // update(舊版, 1, n, pos, v) return 新版
 // 把pos值改成v
