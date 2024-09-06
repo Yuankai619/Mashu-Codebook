@@ -17,8 +17,7 @@ struct Dinic{
     bool BFS(){
         for (int i=0; i<n; i++) level[i] = -1;
         queue<int> que;
-        que.push(s);
-        level[s] = 0;
+        que.push(s); level[s] = 0;
         while (!que.empty()){
             int u = que.front(); que.pop();
             for (auto it : E[u]){
@@ -41,7 +40,6 @@ struct Dinic{
         return res;
     }
     int solve(int res=0){
-    while ( BFS() )
-        res += DFS(s,2147483647);
+    while(BFS()) res += DFS(s,2147483647);
     return res;
 } }flow;

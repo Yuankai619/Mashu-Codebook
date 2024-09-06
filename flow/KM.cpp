@@ -8,13 +8,11 @@ struct KM{ // max weight, for min negate the weights
     ll g[MXN][MXN], lx[MXN], ly[MXN], sy[MXN];
     bool vx[MXN], vy[MXN];
     void init(int _n) { // 1-based, N個節點
-        n = _n;
-        for(int i=1; i<=n; i++) fill(g[i], g[i]+n+1, 0);
+        n = _n; for(int i=1; i<=n; i++) fill(g[i], g[i]+n+1, 0);
     }
     void add_edge(int x, int y, ll w) {g[x][y] = w;} //左邊的集合節點x連邊右邊集合節點y權重為w
     void augment(int y) {
-        for(int x, z; y; y = z)
-          x=pa[y], z=mx[x], my[y]=x, mx[x]=y;
+        for(int x, z; y; y = z) x=pa[y], z=mx[x], my[y]=x, mx[x]=y;
     }
     void bfs(int st) {
         for(int i=1; i<=n; ++i) sy[i]=INF, vx[i]=vy[i]=0;
