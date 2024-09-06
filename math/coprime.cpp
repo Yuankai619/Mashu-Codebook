@@ -1,4 +1,5 @@
 // dp[i] 為認挑2個數字，最大公因數為i的組合數
+// 把cnt[1~N]=1 可以建表phi(歐拉函數)
 const int mxn =  1e6+7;
 int cnt[mxn], dp[mxn];
 int sol(vector<int> vec) {
