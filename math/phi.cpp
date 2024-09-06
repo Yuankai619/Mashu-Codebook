@@ -19,9 +19,8 @@ void phitable(int n){
     for(int i=2;i<=n;++i){
         if(phi[i])continue;
         for(int j=i;j<=n;j+=i){
-            int &pj=phi[j];
-            if(pj==0)pj=j;
-            pj=pj/i*(i-1);
+            if(phi[j]==0)phi[j]=j;
+            phi[j]=phi[j]/i*(i-1);
         }
     }
 }
