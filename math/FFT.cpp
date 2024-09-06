@@ -1,7 +1,7 @@
 // MAXN一定要2的冪次  先跑pre_fft()
 // (must be 2^k) 
 // before any usage, run pre_fft() first
-const int MAXN = 1024*1024;
+const int MAXN = 1024*1024; // 記得要改
 typedef long double ld;
 typedef complex<ld> cplx; //real() ,imag()
 const ld PI = acosl(-1);
