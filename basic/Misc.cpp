@@ -7,6 +7,5 @@ __builtin_popcountll // 二進位有幾個1
 __builtin_clzll // 左起第一個1前0的個數
 __builtin_parityll // 1的個數的奇偶性
 __builtin_mul_overflow(a,b,&res) // a*b是否溢位
-
 // double 轉整數 請加 int b=round(a)
 // 或是 int b =floor(a+0.5) (floor向下取整)

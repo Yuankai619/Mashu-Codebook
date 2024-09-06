@@ -1,5 +1,4 @@
-struct seg {
-    // 加值持久化線段樹
+struct seg { // 加值持久化線段樹
     struct Node {
         int val;
         Node *l, *r;

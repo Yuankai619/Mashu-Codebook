@@ -8,11 +8,9 @@ void pull(int index, int l, int r) {
     if(lazy[index]) st[index] = old[index];
     else if(l==r) st[index] = 0;
     else st[index] = st[index<<1|1]+st[index<<1];
-    // printf("pull %lld~%lld, %lld\n", l, r, st[index]);
     return;
 }
 void insert(int index, int s, int e, int l, int r, int k) {
-    //printf("insert: range %lld~%lld, query %lld~%lld\n", s, e, l, r);
     if(l<=s && e<=r) {
         lazy[index] +=k;
         pull(index, s, e);
@@ -32,7 +30,6 @@ void input(int index, int l, int r) {
     input(index<<1, l, mid);
     input(index<<1|1, mid+1, r);
     old[index] = old[index<<1] + old[index<<1|1];
-    //cout<<l<<" to "<<r<<" is "<<old[index]<<endl;
     return;
 }
 // int diff=1000005;
@@ -58,8 +55,6 @@ signed main(){
         v[i] = make_tuple(a, (int)(lower_bound(sor.begin(), sor.end(), b)-sor.begin()), (int)(lower_bound(sor.begin(), sor.end(), c)-sor.begin()), k);
     }
     input(1, 1, sor.size()-1);
-    // cout<<"get: ";
-    // for(int i: sor) cout<<i<<" "; cout<<endl;
     sort(v.begin(), v.end());
     int pre=0;
     int ans=0;
@@ -69,8 +64,6 @@ signed main(){
             pre = pos;
         }
         insert(1, 1, sor.size()-1, a+1, b, k);
-        // printf("now act: pos %lld,  %lld~%lld, act: %lld\n", pos, a+1, b, k);
-        // printf("now ans: %lld\n", st[1]);
     }
     cout<<ans<<endl;
 }

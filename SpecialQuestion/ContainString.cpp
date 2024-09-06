@@ -20,13 +20,7 @@ void automata(string &s, vector<int> &pi) {
         }
     }
 }
-int quai(int x, int n) {
-    if(n==0) return 1;
-    int mid = quai(x,n/2);
-    mid = mid*mid%mod;
-    if(n&1) return mid*x%mod;
-    return mid;
-}
+int quai(int x, int n); //快速冪
 int solve(string s, int len) {
     vector<int> pi(s.size(), 0);
     prefix(s, pi);

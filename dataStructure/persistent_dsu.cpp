@@ -1,4 +1,3 @@
-
 int bin[mxn];
 vector<tuple<int, int, int, int>> timing;
 // int ans = n; 連通快數量

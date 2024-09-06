@@ -49,14 +49,12 @@ Treap* del(Treap *t, int v) {
     split(temp, v+1, mid, r);
     return merge(l, r);
 }
-
 // base 1
 int position(Treap *t, int p) {
     if(Size(t->l)+1==p) return t->val;
     if(Size(t->l)<p) return position(t->r, p-Size(t->l)-1);
     else return position(t->l, p);
 }
-
 //num of >= k
 int query(Treap *t, int k) {
     if(!t) return 0;

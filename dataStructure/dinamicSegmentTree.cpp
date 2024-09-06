@@ -25,14 +25,12 @@ struct seg {
         }
         cur->tag = 0;
     }
-
     void pull(Node* node, int l, int r) {
         int mid = l+r>>1;
         push(node->l, l, mid);
         push(node->r, mid+1, r);
         node->val = node->l->val + node->r->val;
     }
-
     void add(Node* cur, int l, int r, int ql, int qr, int val) {
         if (ql <= l && r <= qr) {
             cur->tag += val;
@@ -41,14 +39,12 @@ struct seg {
         }
         if (!cur->l) cur->l = new Node();
         if (!cur->r) cur->r = new Node();
-
         int mid = (l + r) / 2;
         push(cur, l, r);
         if(ql<=mid) add(cur->l, l, mid, ql, qr, val);
         if(mid+1<=qr) add(cur->r, mid + 1, r, ql, qr, val);
         pull(cur, l, r);
     }
-
     int query(Node* cur, int l, int r, int ql, int qr) {
         if(ql<=l && r<=qr) {
             push(cur, l, r);
