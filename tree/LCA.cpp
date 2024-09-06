@@ -1,7 +1,5 @@
-//先建edge[MXN]
-//跑dfs，再跑makeanc
-//之後才可以呼叫lca
-// 0-base
+//先建edge[MXN] 跑dfs，再跑makeanc
+//之後才可以呼叫lca 0-base
 const int MXN=1e5;
 const int logN=__lg(MXN);
 int tin[MXN],tout[MXN],anc[MXN][logN+1];
@@ -31,9 +29,6 @@ int lca(int x,int y){
     return anc[y][0];
 }
 void makeanc(int n){
-    for(int i=1;i<=logN;++i){
-        for(int j=0;j<n;++j){
-            anc[j][i] = anc[anc[j][i-1]][i-1];
-        }
-    }
+    for(int i=1;i<=logN;++i)for(int j=0;j<n;++j)
+        anc[j][i] = anc[anc[j][i-1]][i-1];
 }
