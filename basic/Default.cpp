@@ -12,16 +12,6 @@
 #define all(v) (v).begin(), (v).end()
 #define  _for(i,a,b) for(int i=(a);i<(b);++i)
 using namespace std;
-template<typename T>
-ostream& operator<<(ostream& os,const vector<T>& vn){
-	for(int i=0;i<vn.size();++i)os<<vn[i]<<" ";
-	return os;
-}
-template<typename T>
-ostream& operator<<(ostream& os,const set<T>& vn){
-	for(typename set<T>::iterator it=vn.begin();it!=vn.end();++it)os<<*it<<" ";
-	return os;
-}
 mt19937 mt(hash<string>()("Mashu")); //mt();
 // mt19937 mt(chrono::steady_clock::now().time_since_epoch().count());
 // g++ a.cpp -Wall -Wshadow -fsanitize=undefined -o a.exe
