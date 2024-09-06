@@ -17,7 +17,8 @@
  \usepackage{CJKulem}
 \usepackage{tikz} % Used for draw Finite Automata
 \usepackage{afterpage}                          % 控制頁面後續內容
-\usepackage{tocloft}                            % 調整目錄樣式
+\usepackage{multicol}
+
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
 \topmargin=0pt
 \headsep=2pt
@@ -121,9 +122,14 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\contentsname}{Contents}
 
+
+\textbf{
 \scriptsize
-\tableofcontents
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % 更新目錄頁碼
-\afterpage{\input{content.tex}}
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+}
+\newpage
+\input{content.tex}
 
 \end{document}
