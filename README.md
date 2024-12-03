@@ -5,11 +5,8 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
-Here’s a professional README.md for your project:
 
 ---
-
-# Codebook Editor for Competitive Programming
 
 This project provides a 25-page Codebook editing template designed for competitive programmer. It streamlines the process of compiling and formatting a Codebook by automating the LaTeX compilation flow using Docker images and GitHub workflows. This significantly reduces issues related to LaTeX environment setup and font dependencies. With this setup, users only need to focus on editing the content, and by simply pushing changes to GitHub, a fully compiled PDF will automatically be generated.
 
